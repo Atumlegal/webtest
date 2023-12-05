@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kkkk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: relative;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #simButton {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        #naoButton {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        #imageContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #displayedImage {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Se da pra eu?</p>
+        <button id="simButton" onclick="moverBotaoSim()">Sim</button>
+        <button id="naoButton" onclick="moverBotaoNao()">Não</button>
+        <div id="imageContainer">
+            <img id="displayedImage" src="img.png" alt="Imagem">
+        </div>
+    </div>
+
+    <audio id="sound" src="sound.mp3"></audio>
+    <audio id="sound2" src="sound2.mp3"></audio>
+
+    <script>
+        function moverBotaoNao() {
+            var naoButton = document.getElementById("naoButton");
+            var maxWidth = window.innerWidth - naoButton.offsetWidth;
+            var maxHeight = window.innerHeight - naoButton.offsetHeight;
+
+            var randomX = Math.floor(Math.random() * maxWidth);
+            var randomY = Math.floor(Math.random() * maxHeight);
+
+            naoButton.style.position = "absolute";
+            naoButton.style.left = randomX + "px";
+            naoButton.style.top = randomY + "px";
+
+            // Tocar o som
+            var audio = document.getElementById("sound");
+            audio.play();
+        }
+
+        function moverBotaoSim() {
+            // Lógica para o botão "Sim" aqui
+
+            // Tocar o segundo som
+            var audio2 = document.getElementById("sound2");
+            audio2.play();
+
+            // Exibir a imagem
+            var imageContainer = document.getElementById("imageContainer");
+            var displayedImage = document.getElementById("displayedImage");
+
+            imageContainer.style.display = "block";
+            displayedImage.style.display = "block";
+        }
+    </script>
+</body>
+</html>
